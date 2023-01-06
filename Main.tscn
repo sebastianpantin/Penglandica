@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://characters/penguin/PenguinPlayer.tscn" type="PackedScene" id=1]
+
+[node name="Main" type="Node"]
+
+[node name="PenguinPlayer" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 1.5, 1.5 )
