@@ -24,26 +24,26 @@ func read_input():
 		velocity = move_and_slide(velocity * 100)
 	else:
 		if direction.y == -1:
-			$AnimatedSprite.animation = "idle_back"
+			$Sprites/AnimationPlayer.play("idle_back")
 		else:
-			$AnimatedSprite.animation = "idle"
+			$Sprites/AnimationPlayer.play("idle_front")
 			
 	
 	if velocity.x != 0:
 		if velocity.y < 0:
-			$AnimatedSprite.animation = "walk_up"
+			$Sprites/AnimationPlayer.play("walk_back")
 		else:
-			$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_v = false
-		$AnimatedSprite.flip_h = velocity.x < 0
+			$Sprites/AnimationPlayer.play("walk_front")
+		$Sprites/Penguin.flip_v = false
+		$Sprites/Penguin.flip_h = velocity.x < 0
 	elif velocity.y > 0:
-		$AnimatedSprite.animation = "walk"
+		$Sprites/AnimationPlayer.play("walk_front")
 	elif velocity.y < 0:
-		$AnimatedSprite.animation = "walk_up"	
+		$Sprites/AnimationPlayer.play("walk_back")
 	
 		
 func _ready():
-	$AnimatedSprite.play()
+	$Sprites/AnimationPlayer.play("idle_front")
 	
 func _physics_process(delta):
 	read_input()
